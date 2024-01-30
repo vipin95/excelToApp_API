@@ -1,4 +1,4 @@
 const controller = {};
-controller.user = require("./controller");
+controller.user = require("./user.controller");
 
 module.exports = controller;

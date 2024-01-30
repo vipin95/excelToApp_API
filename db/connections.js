@@ -21,4 +21,5 @@ db['sequelize'] = sequelize;
 db['Sequelize'] = Sequelize;
 db.models = {};
 db.models.User = require("./model/user")(sequelize, Sequelize.DataTypes);
+db.models.Site = require("./model/site.model")(sequelize, Sequelize.DataTypes);
 module.exports = db;

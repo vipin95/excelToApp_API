@@ -51,7 +51,7 @@ module.exports = {
         let resMessage = "User Delete successfully";
         let condition = {where : {id : req.params.id}};
         try {
-            let result = await User.destroy(condition);
+            await User.destroy(condition);
         } catch (error) {
             resMessage = error.message;
         }
