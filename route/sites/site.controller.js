@@ -1,11 +1,35 @@
 const db = require("../../db/connections");
 const sites = db.models.Site;
+const Op = db.Sequelize.Op;
+
 
 module.exports = {
     list : async (req, res)=>{
         try {
-            let siteLists = await sites.findAll();
+            let key = Object.keys(req.body)[0];
+            let condition = {where:{
+                [key]:{
+                    [Op.like]:`%${req.body[key]}%`
+                }
+            },limit: 10}
+
+            let siteLists;
+            if(key?.length > 0){
+                siteLists = await sites.findAll(condition);
+            }else{
+                siteLists = await sites.findAll({limit: 10});
+            }
+            // res.setHeader('Access-Control-Allow-Origin', '*');
             res.send(siteLists);
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
+    },
+    upload : async (req, res)=>{
+        try {
+            let siteLists = await sites.bulkCreate(req.body, {returning: true});
+            res.send("Sites Uploaded successfully");
         } catch (error) {
             console.log(error);
             res.send(error);

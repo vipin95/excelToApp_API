@@ -9,13 +9,19 @@ module.exports = (sequelize, DataTypes)=>{
         siteName : {
             type : DataTypes.STRING,
         },
+        FM : {
+            type : DataTypes.STRING,
+        },
         toco : {
             type : DataTypes.STRING,
         },
         tocoId : {
             type : DataTypes.STRING,
         },
-        latLong : {
+        Latitude : {
+            type : DataTypes.STRING,
+        },
+        Longitude : {
             type : DataTypes.STRING,
         },
         zone : {
@@ -31,7 +37,7 @@ module.exports = (sequelize, DataTypes)=>{
             type : DataTypes.STRING,
         },
         DG : {
-            type : DataTypes.BOOLEAN,
+            type : DataTypes.STRING,
         },
         DG_rating : {
             type : DataTypes.INTEGER,
@@ -40,7 +46,7 @@ module.exports = (sequelize, DataTypes)=>{
             type : DataTypes.STRING,
         },
         technicianPhone : {
-            type : DataTypes.INTEGER,
-        },
+            type : DataTypes.STRING,
+        }
     });
 }
